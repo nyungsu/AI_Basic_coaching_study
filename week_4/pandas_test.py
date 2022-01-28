@@ -1,7 +1,7 @@
 from ctypes.wintypes import SERVICE_STATUS_HANDLE
 import pandas as pd
 import numpy as np
-from sympy import series, true
+
 
 # data_url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/housing/housing.data'
 
@@ -98,8 +98,32 @@ from sympy import series, true
 
 # print(ex)
 
-a = pd.Series(index=['a','b','c','d'],data=[1,2,3,4])
-b = pd.Series(index=['b','c','d','e'],data=[1,2,3,4])
-print(a)
-print(b)
-print(a+b)
+# a = pd.Series(index=['a','b','c','d'],data=[1,2,3,4])
+# b = pd.Series(index=['b','c','d','e'],data=[1,2,3,4])
+# print(a)
+# print(b)
+# print(a+b)
+
+index = [1,2,3,4,5]
+data = ['a','b','c','d','e']
+dict_data = {1:'a',2:'b',3:'c',4:'d',5:'e'}
+
+# a = pd.Series(index=index, data = data)
+# b = pd.Series(dict_data)
+# print(a)
+# print(b)
+
+
+
+raw_data = {'first_name': ['Jason', 'Molly', 'Tina'],
+    'last_name': ['Miller', 'Jacobson', 'Ali'],
+    'age': [42, 52, 36],
+    'city': ['San Francisco', 'Baltimore', 'Miami']}
+
+data_df = pd.DataFrame(raw_data)
+print(data_df)
+first_data_df = data_df['first_name']
+last_data_df = data_df['last_name']
+
+print(first_data_df+last_data_df)
+
