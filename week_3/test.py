@@ -1,3 +1,6 @@
-from functools import reduce
+import numpy as np
 
-print(reduce(lambda x, y: x+y, [1, 2, 3, 4, 5]))
+
+beta_gd = np.random.rand(5)
+
+print(beta_gd.mean())
