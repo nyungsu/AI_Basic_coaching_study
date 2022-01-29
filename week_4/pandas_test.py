@@ -122,8 +122,7 @@ raw_data = {'first_name': ['Jason', 'Molly', 'Tina'],
 
 data_df = pd.DataFrame(raw_data)
 print(data_df)
-first_data_df = data_df['first_name']
-last_data_df = data_df['last_name']
 
-print(first_data_df+last_data_df)
+
+
 
