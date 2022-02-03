@@ -16,11 +16,11 @@ for i in range(1000):
     error_MSE = ((pred - y_train)**2).mean()                # pred 함수의 x에 x_train에 해당하는 값을 대입한 예측값과
                                                             # 실제 y_train 값들의 오차를 mean 
 
-    gd_w = ((pred - y_train) * 2 * x_train).mean()          # W변수로 편미분 한 값 합성함수의 미분(wx)'=x 곱해짐
-    gd_b = ((pred - y_train) * 2 ).mean()                   # b변수로 편미분 한 값 합성함수의 미분 (b)'=1 곱해짐
+    gd_w = ((pred - y_train) * 2 * x_train).mean()          # W변수로 편미분 한 값, 합성함수의 미분(wx)'=x 곱해짐
+    gd_b = ((pred - y_train) * 2 ).mean()                   # b변수로 편미분 한 값, 합성함수의 미분 (b)'=1 곱해짐
 
-    beta_gd -= learning_rate *gd_w
-    bias -= learning_rate *gd_b
+    beta_gd -= learning_rate *gd_w                          # 경사하강법,
+    bias -= learning_rate *gd_b                             # learning_rate, 미분값 이용하여 업데이트
 
     if i %100 ==0:
         print(f'epoch :{i}, error :{error_MSE}, weight :{beta_gd}, bias :{bias}')
