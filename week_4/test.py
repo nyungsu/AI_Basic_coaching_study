@@ -1,19 +1,15 @@
 import pandas as pd
+import numpy as np
+ipl_data = {'Team': ['Riders', 'Riders', 'Devils', 'Devils', 'Kings',
+         'kings', 'Kings', 'Kings', 'Riders', 'Royals', 'Royals', 'Riders'],
+         'Rank': [1, 2, 2, 3, 3,4 ,1 ,1,2 , 4,1,2],
+         'Year': [2014,2015,2014,2015,2014,2015,2016,2017,2016,2014,2015,2017],
+         'Points':[876,789,863,673,741,812,756,788,694,701,804,690]}
 
+df1 = pd.DataFrame(ipl_data)
 
-friend_list = [
-    {'name' : 'jeong', 'mid' : 50, 'final' : 10},
-    {'name' : 'lee', 'mid' : 40, 'final' : 20},
-    {'name' : 'song', 'mid' : 30, 'final' : 20},
-    {'name' : 'nam', 'mid' : 20, 'final' : 40},
-    {'name' : 'choi', 'mid' : 10, 'final' : 40}]
-df = pd.DataFrame(friend_list)
+grouped = df1.groupby('Team')
 
-new_data = [
-    {'name' : 'kang', 'mid' : 50, 'final': 90}
-]
-df2=pd.DataFrame(new_data)
+print(grouped.agg(sum))
 
-df = df.append(df2,ignore_index=True)
-
-print(df)
+print(grouped['Points'].agg([sum,np.mean,np.std]))
