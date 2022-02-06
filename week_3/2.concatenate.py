@@ -26,5 +26,5 @@ tensor = np.array([[[1,2,3],[4,5,6],[7,8,9]],
 print(vector.shape) (2,)        
 print(matrix.shape) (2, 2)      
 print(tensor.shape) (3, 3, 3)
-axis=뒤에 숫자는 shape 순으로 있는 차원 방향으로 생각하면 됨
+axis=뒤에 숫자는 shape 순으로 있는 차원 방향으로 합쳐진다 생각하면 됨
 '''

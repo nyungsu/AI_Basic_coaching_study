@@ -13,7 +13,7 @@ learning_rate = 0.001
 
 for i in range(1000):
     pred = (x_train * beta_gd) + bias                       # np.random을 이용하여 뽑은 계수들로 임의의 선 하나 그음
-    error_MSE = ((pred - y_train)**2).mean()                # pred 함수의 x에 x_train에 해당하는 값을 대입한 예측값과
+    error_MSE = ((y_train - pred)**2).mean()                # pred 함수의 x에 x_train에 해당하는 값을 대입한 예측값과
                                                             # 실제 y_train 값들의 오차를 mean 
 
     gd_w = ((pred - y_train) * 2 * x_train).mean()          # W변수로 편미분 한 값, 합성함수의 미분(wx)'=x 곱해짐

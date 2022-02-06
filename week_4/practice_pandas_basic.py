@@ -1,8 +1,6 @@
 import pandas as pd
 import os
 
-from sympy import true
-
 # 1.경로 설정해서 파일 불러오기
 path = os.getcwd()
 # print(f'현재 경로 : {path}')

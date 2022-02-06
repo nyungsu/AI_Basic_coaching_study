@@ -1,14 +1,14 @@
 import numpy as np
 
-arr1 = np.random.randint(0,10,(5,3))
-arr2 = np.random.randint(0,10,(3,2))
+arr1 = np.random.randint(0,10,(5,3))        # 행렬 곱 검산을
+arr2 = np.random.randint(0,10,(3,2))        # 편하게 하기 위해 정수로
 
 print(arr1, f', shape :{arr1.shape}')
 print(arr2, f', shape :{arr2.shape}')
 
 # @연산자 사용 , np.matmul()랑 같다고 함
-at_mul = arr1@arr2
-print(at_mul, at_mul.shape)
+at_mul = arr1@arr2                          # 3차원 부터 다르게 동작
+print(at_mul, at_mul.shape)                 # 이거 쓰는 습관 들이자        
 
 # np.dot() 사용
 np_dot_mul = np.dot(arr1,arr2)
