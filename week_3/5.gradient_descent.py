@@ -6,10 +6,10 @@ xy = np.array([[1., 2., 3., 4., 5., 6.],
 x_train = xy[0]
 y_train = xy[1]
 
-beta_gd = np.random.rand(1)
+beta_gd = np.random.rand(1)                                 # 0~1 사이 랜덤
 bias = np.random.rand(1)
 
-learning_rate = 0.001
+learning_rate = 0.01
 
 for i in range(1000):
     pred = (x_train * beta_gd) + bias                       # np.random을 이용하여 뽑은 계수들로 임의의 선 하나 그음
@@ -24,4 +24,7 @@ for i in range(1000):
 
     if i %100 ==0:
         print(f'epoch :{i}, error :{error_MSE}, weight :{beta_gd}, bias :{bias}')
+
+
+
 

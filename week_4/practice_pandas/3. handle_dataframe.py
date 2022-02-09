@@ -1,42 +1,4 @@
 import pandas as pd
-import os
-
-# 1.경로 설정해서 파일 불러오기
-path = os.getcwd()
-# print(f'현재 경로 : {path}')
-
-df1 = pd.read_csv('week_4\data.csv')
-# print(df1)
-# print()
-# print(df1.head(3))
-
-# 2.read_csv 함수의 파라미터 
-df2 = pd.read_csv('week_4\data_no_head_tab.txt',
-                  delimiter='\t',
-                  header = None,
-                  names=['성','이름','나이','전공','사는 곳'])
-# print(df2)
-
-# 3.딕트로 데이터 프레임 만들기
-friend_dict_list = [
-    {'name' : 'john', 'age': 26, 'job' : 'student'},
-    {'name' : 'song', 'age' : 26, 'job' : 'public'}     
-    ]
-
-df3 = pd.DataFrame(friend_dict_list)
-# print(df3)
-df3 = df3[['age','job','name']]
-# print(df3)
-
-# 4.리스트로 데이터 프레임 만들기
-friend_list = [
-    ['jeong',30,'student'],
-    ['song',26,'public'],
-    ['lee',10,'student']    
-]
-
-df4 = pd.DataFrame(friend_list,columns=['name','age','job'])
-# print(df4)
 
 # 5.행 다루기
 friend_list = [
@@ -46,7 +8,6 @@ friend_list = [
 ]
 df5 = pd.DataFrame(friend_list,columns=['name','age','job'])
 print(df5[1:3])         # 행 슬라이싱
-
 print(df5.loc[0:2])     # 0~2까지
 print(df5.loc[[0,2]])   # 0이랑 2는 [] 두 개
 
@@ -88,36 +49,6 @@ for row in df7['mean']:
 df7['grade'] = grade
     
 print(df7)
-
-# 9.apply
-data_list = [
-    {'yyyy-mm-dd' : '1997-11-28'},
-    {'yyyy-mm-dd' : '1997-02-15'},
-    {'yyyy-mm-dd' : '1997-03-20'},
-    {'yyyy-mm-dd' : '2000-09-29'},
-    {'yyyy-mm-dd' : '1962-11-03'},
-    {'yyyy-mm-dd' : '1964-02-26'}
-]
-
-df9 = pd.DataFrame(data_list,
-                  columns=['yyyy-mm-dd'])
-print(df9)
-
-def extract_year(row):
-    return row.split('-')[0]
-
-def extract_month(row):
-    return row.split('-')[1]
-
-def extract_day(row):
-    return row.split('-')[2]
-
-df9['year'] = df9['yyyy-mm-dd'].apply(extract_year)
-df9['month'] = df9['yyyy-mm-dd'].apply(extract_month)
-df9['day'] = df9['yyyy-mm-dd'].apply(extract_day)
-
-df9.drop('yyyy-mm-dd',axis=1,inplace=True)
-print(df9)
 
 # 10.행 생성 및 수정
 friend_list = [
