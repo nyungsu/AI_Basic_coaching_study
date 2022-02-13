@@ -1,5 +1,4 @@
 import matplotlib.pyplot as plt
-import numpy as np
 
 names = ['group_a','group_b','group_c']
 values = [1,10,100]
@@ -16,3 +15,7 @@ plt.subplot(1,3,3)
 plt.plot(names,values)
 
 plt.show()
+
+# 그래프 종류
+# https://medium.com/@peteryun/python-matplotlib-%EA%B8%B0%EB%B3%B8-6e23e5fd2f16
+# 참고

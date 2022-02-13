@@ -1,16 +1,3 @@
-'''
-막 concat을 끝낸 df3와
-groupby로 나눈 df_fruit,df_vegetable 두 개의 타입을 찍어보면
-<class 'pandas.core.frame.DataFrame'>
-똑같이 dataframe 클래스라고 뜨는데
-concat을 끝낸 df3는 .sort_values 함수가 먹히고
-df_fruit는 .sort_values 함수가 안 먹히네
-왜 이럴까?
-여튼 그래서 groupby 넣기전에 내림차순으로 정리하고 
-groupby에 넣으니까 정렬 되어서 나오길래
-정렬하고 groupby로 나누었다.
-'''
-
 import pandas as pd
 
 data1 = [
@@ -28,22 +15,25 @@ data2 = [
         ]
 
 df1 = pd.DataFrame(data1)
-df2 = pd.DataFrame(data2)
+df2 = pd.DataFrame(data2)                       # 데이터 프레임 선언
 
-df3 = pd.concat([df1,df2])
-df3.sort_values(by=['Price'],inplace=True,ascending=False)
-# df3에서는 sort가 먹히는데,
-# 아래에 groupby 하고 나면 .sort가 안 먹혀서
-# 내림차순으로 정렬하고 groupby로 나누었다.
+df3 = pd.concat([df1,df2], axis=0)              # concat 함수로 df1 df2 붙임
 
-df4 = df3.groupby('Type')
+# # 답지는 loc으로 접근
+# df_fruit1 = df3.loc[df3['Type']=="Fruit"]
+# df_veg = df3.loc[df3['Type']=="vegetable"]
+
+df4 = df3.groupby('Type')                       # groupby함수를 이용해 type을 기준으로 찢음
 for name,group in df4:
     if name =='Fruit':
-        df_fruit=group
+        df_fruit2=group
     elif name =='Vegetable':
         df_vegetable=group
 
-fruit_top2 = df_fruit['Price'].head(2).sum()
+df_fruit2.sort_values(by=['Price'],inplace=True,ascending=False)        # inplace를 true 안 해주면 기존 데이터가 변경 되지 않고 이 줄에서만 변경
+df_vegetable.sort_values(by=['Price'],inplace=True,ascending=False)     # sort_values 함수에서 ascending을 false 해주면 내림차순
+
+fruit_top2 = df_fruit2['Price'].head(2).sum()                           # 내림차순으로 정렬된 상태에서 맨위 두줄은 top2
 vegatable_top2 = df_vegetable['Price'].head(2).sum()
 
 print(f'Sum of Top 2 Fruit Price : {fruit_top2}')

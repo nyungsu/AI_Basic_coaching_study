@@ -13,5 +13,7 @@ plt.xlim(0,5)
 plt.ylim(0,100)
 plt.show()
 
-
+# 마커, 색상은
+# https://kongdols-room.tistory.com/82
+# 이 블로그 참조했음
 
